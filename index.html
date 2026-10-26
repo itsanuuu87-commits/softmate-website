@@ -1,0 +1,1236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Softmate | Innovative Software Solutions</title>
+<meta name="description" content="Softmate provides professional website development, mobile applications and custom software solutions in Pakistan.">
+
+<style>
+/* ========== GLOBAL STYLES ========== */
+:root {
+  --bg: #08172e;
+  --header: #101f36;
+  --card: #11243e;
+  --card-hover: #162d4b;
+  --blue: #1769ff;
+  --blue-light: #66b6ff;
+  --white: #ffffff;
+  --text: #c1cfe2;
+  --muted: #92a7c2;
+  --border: #263e5e;
+  --green: #38d6a5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1250px;
+  margin: auto;
+}
+
+.section {
+  padding: 90px 0;
+}
+
+.section-label {
+  color: var(--blue-light);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.section-description {
+  max-width: 650px;
+  color: var(--text);
+  margin-bottom: 38px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 24px;
+  border: 1px solid var(--blue);
+  border-radius: 11px;
+  background: var(--blue);
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.btn:hover {
+  background: #0755df;
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: #6d83a2;
+}
+
+.btn-outline:hover {
+  background: #172d49;
+  border-color: var(--blue-light);
+}
+
+/* ========== NAVIGATION ========== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(16, 31, 54, .97);
+  border-bottom: 1px solid rgba(255,255,255,.09);
+  backdrop-filter: blur(12px);
+}
+
+.navbar {
+  min-height: 88px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: white;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  white-space: nowrap;
+}
+
+.logo-icon {
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #73c5ff, #1769ff);
+  font-size: 26px;
+  box-shadow: 0 7px 22px #1769ff35;
+}
+
+.logo span:last-child {
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+}
+
+.nav-links a {
+  color: #d0dced;
+  font-size: 15px;
+  font-weight: 600;
+  transition: .2s;
+}
+
+.nav-links a:hover {
+  color: var(--blue-light);
+}
+
+.menu-toggle {
+  display: none;
+  color: white;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* ========== HERO ========== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 90px 0 105px;
+  background:
+    radial-gradient(ellipse at 82% 48%, #1769ff25, transparent 40%),
+    linear-gradient(115deg, #08172e, #0a1d39);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #31517a;
+  background: #132640;
+  color: #b8d6ff;
+  border-radius: 30px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 28px;
+}
+
+.hero-badge::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.hero h1 {
+  font-size: clamp(40px, 5vw, 67px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+}
+
+.hero h1 span {
+  background: linear-gradient(90deg, #7bc8ff, #2876ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  color: #bdcfe5;
+  font-size: 17px;
+  max-width: 610px;
+  margin-bottom: 30px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-note {
+  margin-top: 25px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Dashboard illustration */
+.dashboard-wrap {
+  position: relative;
+  padding: 15px 15px 35px 0;
+}
+
+.dashboard {
+  padding: 17px;
+  background: #101e33;
+  border: 8px solid #283c59;
+  border-radius: 22px;
+  transform: rotate(-3deg);
+  box-shadow: 0 30px 70px #0005;
+}
+
+.dashboard-top {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+.dash-dot {
+  width: 9px;
+  height: 9px;
+  background: #7386a0;
+  border-radius: 50%;
+}
+
+.dash-topbar {
+  height: 23px;
+  flex: 1;
+  margin-left: 12px;
+  border-radius: 7px;
+  background: #2c4261;
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 11px;
+}
+
+.dash-sidebar {
+  background: #1b2d47;
+  border-radius: 8px;
+  padding: 15px 8px;
+  min-height: 205px;
+}
+
+.dash-sidebar span {
+  display: block;
+  height: 8px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background: #405e86;
+}
+
+.dash-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 11px;
+}
+
+.dash-card {
+  height: 90px;
+  border: 1px solid #345477;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #1c3c64, #142943);
+}
+
+.dash-chart {
+  height: 130px;
+  display: flex;
+  align-items: end;
+  justify-content: space-around;
+  gap: 7px;
+  padding: 12px 10px;
+  border: 1px solid #2c4567;
+  border-radius: 8px;
+  background: #142741;
+}
+
+.dash-chart span {
+  flex: 1;
+  max-width: 42px;
+  border-radius: 5px 5px 0 0;
+  background: linear-gradient(#63b5ff, #1769ff);
+}
+
+.phone {
+  position: absolute;
+  right: -4px;
+  bottom: 0;
+  width: 100px;
+  height: 215px;
+  padding: 11px 7px;
+  border: 7px solid #344965;
+  border-radius: 28px;
+  background: #101e33;
+  transform: rotate(8deg);
+  box-shadow: 0 20px 40px #0005;
+}
+
+.phone-screen {
+  height: 100%;
+  padding: 13px 8px;
+  color: #182c48;
+  background: #f2f6ff;
+  border-radius: 15px;
+  font-size: 10px;
+}
+
+.phone-speaker {
+  width: 38px;
+  height: 5px;
+  margin: 0 auto 19px;
+  border-radius: 5px;
+  background: #8da0b9;
+}
+
+.phone-title {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.phone-button {
+  height: 50px;
+  border-radius: 8px;
+  background: var(--blue);
+  margin-bottom: 12px;
+}
+
+.phone-line {
+  height: 6px;
+  border-radius: 6px;
+  background: #c8d5e5;
+  margin-bottom: 7px;
+}
+
+/* ========== SERVICES ========== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px;
+}
+
+.service-card {
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: linear-gradient(145deg, #132743, #0f2038);
+  transition: .25s;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: #397fe0;
+  background: var(--card-hover);
+}
+
+.service-icon {
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 20px;
+  border-radius: 13px;
+  background: #18385f;
+  font-size: 27px;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  color: var(--text);
+  font-size: 15px;
+}
+
+/* ========== ABOUT ========== */
+.about-section {
+  background: #0d203b;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.about-text {
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.feature {
+  color: #dbe8f8;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.feature::before {
+  content: "✓";
+  color: var(--green);
+  margin-right: 8px;
+}
+
+.about-panel {
+  padding: 35px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #142b49, #0c1c33);
+}
+
+.about-panel h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.about-panel p {
+  color: var(--text);
+}
+
+/* ========== PORTFOLIO ========== */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px;
+}
+
+.project-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+}
+
+.project-art {
+  min-height: 190px;
+  display: grid;
+  place-items: center;
+  font-size: 65px;
+  background:
+    radial-gradient(circle at 30% 25%, #357fff55, transparent 45%),
+    linear-gradient(135deg, #142e50, #0a1b31);
+}
+
+.project-info {
+  padding: 24px;
+}
+
+.project-info h3 {
+  margin-bottom: 8px;
+}
+
+.project-info p {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.project-tag {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: #a8d5ff;
+  background: #1a385e;
+  font-size: 12px;
+}
+
+/* ========== PROCESS ========== */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.process-card {
+  padding: 25px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.process-number {
+  color: var(--blue-light);
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.process-card h3 {
+  margin-bottom: 8px;
+}
+
+.process-card p {
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* ========== CONTACT ========== */
+.contact-section {
+  background:
+    radial-gradient(ellipse at 80% 20%, #1769ff20, transparent 40%),
+    #0b1b32;
+  border-top: 1px solid var(--border);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.contact-copy p {
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.contact-detail {
+  margin-top: 15px;
+  color: #d9e8fa;
+}
+
+.contact-form {
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #11243e;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  display: block;
+  width: 100%;
+  margin-bottom: 17px;
+  padding: 13px;
+  border: 1px solid #304766;
+  border-radius: 8px;
+  outline: none;
+  background: #0b1b32;
+  color: white;
+  font: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  border-color: var(--blue-light);
+  box-shadow: 0 0 0 2px #1769ff25;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #8da2bd;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form .btn {
+  width: 100%;
+}
+
+.form-message {
+  color: var(--blue-light);
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  padding: 35px 0;
+  background: #050f20;
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-text {
+  color: var(--muted);
+  font-size: 13px;
+  text-align: right;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 1050px) {
+  .nav-links {
+    gap: 13px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+
+  .hero-grid {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 800px) {
+  .navbar {
+    min-height: 75px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 20px 5%;
+    background: var(--header);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hero {
+    padding: 65px 0 80px;
+  }
+
+  .hero-grid,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-grid {
+    gap: 45px;
+  }
+
+  .dashboard-wrap {
+    max-width: 570px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .services-grid,
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    width: 88%;
+  }
+
+  .section {
+    padding: 65px 0;
+  }
+
+  .logo {
+    font-size: 23px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    letter-spacing: -1.5px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .services-grid,
+  .portfolio-grid,
+  .process-grid,
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard {
+    padding: 10px;
+    border-width: 6px;
+  }
+
+  .dashboard-content {
+    grid-template-columns: 48px 1fr;
+    gap: 7px;
+  }
+
+  .dash-sidebar {
+    padding: 12px 6px;
+    min-height: 150px;
+  }
+
+  .dash-cards {
+    gap: 5px;
+  }
+
+  .dash-card {
+    height: 62px;
+  }
+
+  .dash-chart {
+    height: 95px;
+  }
+
+  .phone {
+    width: 78px;
+    height: 175px;
+    right: -4px;
+  }
+
+  .contact-form {
+    padding: 20px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-text {
+    text-align: left;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ========== HEADER ========== -->
+<header>
+  <div class="container navbar">
+    <a class="logo" href="#home">
+      <span class="logo-icon">S</span>
+      <span>Softmate</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Open navigation" aria-expanded="false">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#process">Our Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="btn header-quote" href="#contact">Get a Quote ↗</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ========== HERO SECTION ========== -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+
+    <div>
+      <div class="hero-badge">YOUR VISION · OUR TECHNOLOGY</div>
+
+      <h1>
+        Innovative Software Solutions for a
+        <span>Smarter Tomorrow.</span>
+      </h1>
+
+      <p class="hero-description">
+        We help businesses grow with thoughtfully designed mobile apps,
+        powerful websites and custom software built around your goals.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn" href="#contact">Start Your Project ↗</a>
+        <a class="btn btn-outline" href="#services">Explore Our Services</a>
+      </div>
+
+      <p class="hero-note">
+        Website Development · Mobile Apps · Custom Software
+      </p>
+    </div>
+
+    <!-- CSS-made dashboard illustration -->
+    <div class="dashboard-wrap">
+      <div class="dashboard">
+        <div class="dashboard-top">
+          <span class="dash-dot"></span>
+          <span class="dash-dot"></span>
+          <span class="dash-dot"></span>
+          <div class="dash-topbar"></div>
+        </div>
+
+        <div class="dashboard-content">
+          <div class="dash-sidebar">
+            <span></span><span></span><span></span>
+            <span></span><span></span>
+          </div>
+
+          <div>
+            <div class="dash-cards">
+              <div class="dash-card"></div>
+              <div class="dash-card"></div>
+              <div class="dash-card"></div>
+            </div>
+
+            <div class="dash-chart">
+              <span style="height:35%"></span>
+              <span style="height:58%"></span>
+              <span style="height:44%"></span>
+              <span style="height:78%"></span>
+              <span style="height:62%"></span>
+              <span style="height:92%"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-speaker"></div>
+          <div class="phone-title">Welcome back</div>
+          <div class="phone-button"></div>
+          <div class="phone-line"></div>
+          <div class="phone-line"></div>
+          <div class="phone-line"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-label">WHAT WE DO</div>
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-description">
+      Smart digital services designed to help your business work better,
+      reach more customers and grow with confidence.
+    </p>
+
+    <div class="services-grid">
+
+      <article class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3>Website Development</h3>
+        <p>
+          Modern, responsive and professional websites that present
+          your business beautifully on every screen.
+        </p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Mobile Applications</h3>
+        <p>
+          Useful mobile app experiences designed around your users
+          and your business requirements.
+        </p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">⚙️</div>
+        <h3>Custom Software</h3>
+        <p>
+          Purpose-built software to simplify workflows and help
+          businesses manage everyday operations.
+        </p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>UI/UX Design</h3>
+        <p>
+          Clear layouts and user-friendly experiences that make
+          digital products easier to use.
+        </p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🛒</div>
+        <h3>E-Commerce Solutions</h3>
+        <p>
+          Online store experiences to showcase products and make
+          shopping simpler for customers.
+        </p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🛠️</div>
+        <h3>Website Maintenance</h3>
+        <p>
+          Ongoing improvements, updates and technical support to
+          keep your website working smoothly.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="section about-section" id="about">
+  <div class="container about-grid">
+
+    <div>
+      <div class="section-label">ABOUT SOFTMATE</div>
+      <h2 class="section-title">Technology That Works for You</h2>
+
+      <p class="about-text">
+        At Softmate, we believe technology should solve real problems.
+        We work towards turning business ideas into practical digital
+        experiences through thoughtful design and development.
+      </p>
+
+      <p class="about-text">
+        Our focus is on understanding each project's needs and creating
+        solutions that are useful, accessible and ready to grow.
+      </p>
+
+      <div class="features">
+        <div class="feature">User-focused design</div>
+        <div class="feature">Responsive websites</div>
+        <div class="feature">Modern technology</div>
+        <div class="feature">Clear communication</div>
+      </div>
+    </div>
+
+    <div class="about-panel">
+      <div class="section-label">OUR PURPOSE</div>
+      <h3>Turning Ideas Into Digital Experiences</h3>
+      <p>
+        From a first business website to a custom digital product,
+        we aim to make the journey from idea to launch straightforward.
+      </p>
+      <br>
+      <a class="btn" href="#contact">Discuss Your Idea ↗</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== PORTFOLIO ========== -->
+<section class="section" id="portfolio">
+  <div class="container">
+    <div class="section-label">OUR WORK</div>
+    <h2 class="section-title">Ideas We Can Build</h2>
+    <p class="section-description">
+      Examples of digital products and projects Softmate can develop
+      according to a client's requirements.
+    </p>
+
+    <div class="portfolio-grid">
+
+      <article class="project-card">
+        <div class="project-art">🛍️</div>
+        <div class="project-info">
+          <h3>E-Commerce Website</h3>
+          <p>An online shopping experience for a growing retail business.</p>
+          <span class="project-tag">Web Development</span>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-art">📲</div>
+        <div class="project-info">
+          <h3>Mobile App Concept</h3>
+          <p>A simple mobile experience for customer services and bookings.</p>
+          <span class="project-tag">Mobile Apps</span>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-art">📊</div>
+        <div class="project-info">
+          <h3>Business Dashboard</h3>
+          <p>A dashboard concept for viewing business information in one place.</p>
+          <span class="project-tag">Custom Software</span>
+        </div>
+      </article>
+
+    </div>
+    <p style="color:var(--muted);font-size:13px;margin-top:18px;">
+      Note: These are illustrative project concepts, not claims of completed client work.
+    </p>
+  </div>
+</section>
+
+<!-- ========== PROCESS ========== -->
+<section class="section about-section" id="process">
+  <div class="container">
+    <div class="section-label">HOW WE WORK</div>
+    <h2 class="section-title">Our Development Process</h2>
+    <p class="section-description">
+      A clear process helps turn your idea into a useful digital product.
+    </p>
+
+    <div class="process-grid">
+
+      <article class="process-card">
+        <div class="process-number">01</div>
+        <h3>Discovery</h3>
+        <p>Understand your goals, audience and project requirements.</p>
+      </article>
+
+      <article class="process-card">
+        <div class="process-number">02</div>
+        <h3>UI/UX Design</h3>
+        <p>Plan the layout, user journey and visual design.</p>
+      </article>
+
+      <article class="process-card">
+        <div class="process-number">03</div>
+        <h3>Development</h3>
+        <p>Build the website or software according to the approved plan.</p>
+      </article>
+
+      <article class="process-card">
+        <div class="process-number">04</div>
+        <h3>Testing & Launch</h3>
+        <p>Test the product, fix issues and prepare it for launch.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="section contact-section" id="contact">
+  <div class="container contact-grid">
+
+    <div class="contact-copy">
+      <div class="section-label">LET'S CONNECT</div>
+      <h2 class="section-title">Have a Project in Mind?</h2>
+
+      <p>
+        Tell us about your idea, your business or a problem you want
+        technology to solve. Let's explore the next step together.
+      </p>
+
+      <div class="contact-detail">📍 Serving clients in Pakistan</div>
+      <div class="contact-detail">💻 Websites, apps and software</div>
+      <div class="contact-detail">🤝 Let's discuss your requirements</div>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+      <label for="name">Full Name</label>
+      <input id="name" name="name" type="text"
+        placeholder="Enter your name" required>
+
+      <label for="email">Email Address</label>
+      <input id="email" name="email" type="email"
+        placeholder="Enter your email" required>
+
+      <label for="service">Service Required</label>
+      <select id="service" name="service" required>
+        <option value="">Choose a service</option>
+        <option>Website Development</option>
+        <option>Mobile Application</option>
+        <option>Custom Software</option>
+        <option>UI/UX Design</option>
+        <option>E-Commerce</option>
+        <option>Other</option>
+      </select>
+
+      <label for="message">Project Details</label>
+      <textarea id="message" name="message"
+        placeholder="Tell us about your project..." required></textarea>
+
+      <button class="btn" type="submit">Send Project Enquiry ↗</button>
+
+      <p class="form-message" id="formMessage" role="status"></p>
+    </form>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <a class="logo" href="#home">
+        <span class="logo-icon">S</span>
+        <span>Softmate</span>
+      </a>
+      <p style="color:var(--muted);font-size:13px;margin-top:8px;">
+        Your vision. Our technology.
+      </p>
+    </div>
+
+    <div class="footer-text">
+      <p>© <span id="year"></span> Softmate. All rights reserved.</p>
+      <p>Built with care and technology.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile navigation
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function () {
+  const isOpen = navLinks.classList.toggle("open");
+
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.textContent = isOpen ? "✕" : "☰";
+});
+
+// Close mobile menu after selecting a link
+navLinks.querySelectorAll("a").forEach(function (link) {
+  link.addEventListener("click", function () {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  });
+});
+
+// Automatically update copyright year
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+// Contact form demo
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  document.getElementById("formMessage").textContent =
+    "Thank you! Your form is working, but message delivery needs to be connected.";
+
+  this.reset();
+});
+</script>
+
+</body>
+</html>
